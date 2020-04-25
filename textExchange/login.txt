@@ -1,0 +1,6 @@
+<form class="login-form">
+    <input type="text" placeholder="name" required/>
+    <input type="password" placeholder="password" required/>
+    <button>Login</button>
+    <p class="message">Already registered? <a onclick="return loadDoc('register.txt')">Sign In</a></p>
+</form>
