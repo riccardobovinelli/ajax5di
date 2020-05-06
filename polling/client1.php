@@ -15,12 +15,7 @@ and open the template in the editor.
 
             function updateServer(string) {
                 var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        //document.getElementById("demo").innerHTML = this.responseText;
-                        console.log("version="+version);
-                    }
-                };
+                //non è necessario gestirla
                 version++;
                 xhttp.open("POST", "server.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -29,18 +24,20 @@ and open the template in the editor.
             
             function requestData(){
                 var xhttp = new XMLHttpRequest();
+                xhttp.overrideMimeType("text/xml");    
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        alert(this.responseText);
+                        version = this.responseXML.getElementsByTagName("ver")[0].childNodes[0].nodeValue;
+                        document.getElementById("content").innerHTML = this.responseXML.getElementsByTagName("content")[0].childNodes[0].nodeValue;
                     }
                 };
                 xhttp.open("POST", "server.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("notMuchToSay=true");
+                xhttp.send("id=" + id );
             }
 
             function polling() {
-                /*var xhttp = new XMLHttpRequest();
+                var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         if (!this.responseText){
@@ -50,20 +47,18 @@ and open the template in the editor.
                 };
                 xhttp.open("POST", "server.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("polling=true&id=2&ver="+version);*/
+                xhttp.send("polling=true&id=&ver="+version);
             }
             
 
             $(document).ready(function () {
-                setInterval(polling, 5000);
+                setInterval(polling, 1000);
             });
             
         </script>
     </head>
     <body>
         <input type="text" onkeyup="updateServer(this.value)"/>
-        <?php
-        // put your code here
-        ?>
+        <span id="content"></span>
     </body>
 </html>

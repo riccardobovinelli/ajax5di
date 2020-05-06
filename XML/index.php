@@ -1,6 +1,3 @@
-<?php
-        // put your code here
-?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -28,7 +25,7 @@
         name:<span id="name"></span><br>
         surname:<span id="surname"></span><br>
         email:<span id="email"></span><br>
-        class:<span id="class"></span><rr>
+        class:<span id="class"></span><br>
             <button onclick="loadXml()">Carica XML</button>
     </body>
 </html>
