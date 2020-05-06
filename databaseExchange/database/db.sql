@@ -26,5 +26,5 @@ INSERT INTO FLight(id, departure, arrival, datetime_arrival, datetime_departure)
 (3467, "Brindisi", "Comiso", "2020-06-30 16:16:00", "2020-06-30 19:23:00"),
 (3456, "Comiso", "Brindisi", "2020-08-02 13:30:00", "2020-08-02 16:20:00"),
 (3267, "Lampedusa", "Crotone", "2020-06-14 12:30:00", "2020-06-14 15:55:00"),
-(4678, "Crotone", "Lampedusa", "2020-07-03 16:45:00", "2020-07-03 17:54:00"),
+(4678, "Crotone", "Lampedusa", "2020-07-03 16:45:00", "2020-07-03 17:54:00")
 ;
